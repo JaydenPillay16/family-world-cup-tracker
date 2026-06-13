@@ -1,0 +1,77 @@
+import type { FamilyMember } from "../types/family";
+
+export const familyTeams: FamilyMember[] = [
+  {
+    name: "Sanhye",
+    teams: [
+      "Sweden",
+      "Bosnia & Herzegovina",
+      "Türkiye",
+      "Czechia",
+      "Japan",
+      "England",
+      "Cape Verde",
+      "Côte d'Ivoire",
+      "Austria",
+      "Morocco",
+    ],
+  },
+  {
+    name: "Tushar",
+    teams: [
+      "Panama",
+      "Canada",
+      "New Zealand",
+      "Saudi Arabia",
+      "Uzbekistan",
+      "Portugal",
+      "Switzerland",
+      "Norway",
+      "Spain",
+      "Germany",
+    ],
+  },
+  {
+    name: "Tyag",
+    teams: [
+      "USA",
+      "Uruguay",
+      "Ecuador",
+      "Tunisia",
+      "Ghana",
+      "Brazil",
+      "Haiti",
+      "Senegal",
+      "Mexico",
+      "Qatar",
+    ],
+  },
+  {
+    name: "Dinesh",
+    teams: [
+      "South Africa",
+      "Algeria",
+      "Paraguay",
+      "Croatia",
+      "Jordan",
+      "DR Congo",
+      "Curaçao",
+      "Colombia",
+      "Scotland",
+    ],
+  },
+  {
+    name: "Nirosha",
+    teams: [
+      "Iran",
+      "Australia",
+      "Netherlands",
+      "Egypt",
+      "Iraq",
+      "Belgium",
+      "Argentina",
+      "France",
+      "South Korea",
+    ],
+  },
+];
