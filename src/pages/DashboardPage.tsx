@@ -55,7 +55,7 @@ function DashboardPage() {
             Tournament Status
           </p>
 
-          <div className="mt-2 flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:justify-center md:gap-8">
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
             <span className="font-bold">
               ⚽ Matches Played: {matches.length}
             </span>

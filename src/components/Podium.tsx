@@ -39,10 +39,10 @@ function PodiumCard({
 }) {
   return (
     <div
-      className={`flex flex-col justify-between rounded-3xl border p-6 text-center shadow-2xl transition hover:-translate-y-1 ${height} ${
+      className={`flex flex-col justify-between rounded-3xl border p-6 text-center shadow-2xl transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] ${height} ${
         champion
-          ? "border-yellow-300/70 bg-yellow-400/15"
-          : "border-white/10 bg-white/10"
+  ? "border-yellow-300/70 bg-yellow-400/15 shadow-yellow-400/40 shadow-2xl"
+  : "border-white/10 bg-white/10"
       }`}
     >
       <div>
