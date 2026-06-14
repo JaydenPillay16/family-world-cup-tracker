@@ -10,6 +10,12 @@ function StandingsPage() {
 
 useEffect(() => {
   getMatches().then(setMatches);
+
+  const interval = setInterval(() => {
+    getMatches().then(setMatches);
+  }, 300000);
+
+  return () => clearInterval(interval);
 }, []);
 
 const standings = calculateGroupStandings(matches);

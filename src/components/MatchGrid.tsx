@@ -1,30 +1,44 @@
-import ReactCountryFlag from "react-country-flag";
 import { useEffect, useState } from "react";
+import ReactCountryFlag from "react-country-flag";
+import { getTeamCode } from "../constants/teamFlags";
 import { getMatches } from "../services/matchService";
 import type { Match } from "../types/match";
-import { getTeamCode } from "../constants/teamFlags";
 
 function MatchGrid() {
   const [matches, setMatches] = useState<Match[]>([]);
 
-useEffect(() => {
-  getMatches().then(setMatches);
-}, []);
+  useEffect(() => {
+    getMatches().then(setMatches);
+
+    const interval = setInterval(() => {
+      getMatches().then(setMatches);
+    }, 300000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="grid gap-5 md:grid-cols-2">
       {matches.map((match) => (
         <div
           key={match.id}
-          className="rounded-3xl border border-white/10 bg-white/10 p-5 shadow-xl backdrop-blur"
+          className="rounded-3xl border border-white/10 bg-white/10 p-5 shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]"
         >
           <div className="mb-4 flex items-center justify-between">
             <span className="rounded-full bg-yellow-400 px-3 py-1 text-xs font-black text-black">
               Group {match.group}
             </span>
 
-            <span className="text-xs uppercase tracking-widest text-gray-400">
-              {match.status}
-            </span>
+            {match.status === "live" ? (
+              <span className="flex items-center gap-2 rounded-full bg-red-500/20 px-3 py-1 text-xs font-black uppercase tracking-widest text-red-300">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-red-500" />
+                LIVE
+              </span>
+            ) : (
+              <span className="text-xs uppercase tracking-widest text-gray-400">
+                {match.status}
+              </span>
+            )}
           </div>
 
           <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4">
@@ -39,7 +53,9 @@ useEffect(() => {
             </div>
 
             <div className="rounded-2xl bg-black/40 px-5 py-3 text-2xl font-black text-yellow-300">
-              {match.homeScore} - {match.awayScore}
+              {match.homeScore !== null && match.awayScore !== null
+                ? `${match.homeScore} - ${match.awayScore}`
+                : "-"}
             </div>
 
             <div className="text-right">

@@ -10,8 +10,14 @@ function DashboardPage() {
   const [matches, setMatches] = useState<Match[]>([]);
 
   useEffect(() => {
+  getMatches().then(setMatches);
+
+  const interval = setInterval(() => {
     getMatches().then(setMatches);
-  }, []);
+  }, 300000);
+
+  return () => clearInterval(interval);
+}, []);
 
   const leaderboard = calculateLeaderboard(matches);
 
