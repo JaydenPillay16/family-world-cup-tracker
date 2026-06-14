@@ -19,7 +19,43 @@ export default async function handler(req: any, res: any) {
 
     const data = await response.json();
 
-    return res.status(response.status).json(data);
+    const matches = data.matches
+      .filter((match: any) => match.stage === "GROUP_STAGE")
+      .map((match: any) => ({
+        id: String(match.id),
+        group: match.group?.replace("GROUP_", "") ?? "",
+        homeTeam:
+          match.homeTeam.shortName === "USA"
+            ? "USA"
+            : match.homeTeam.name === "United States"
+            ? "USA"
+            : match.homeTeam.name === "Bosnia-Herzegovina"
+            ? "Bosnia & Herzegovina"
+            : match.homeTeam.name === "Türkiye"
+            ? "Türkiye"
+            : match.homeTeam.name,
+        awayTeam:
+          match.awayTeam.shortName === "USA"
+            ? "USA"
+            : match.awayTeam.name === "United States"
+            ? "USA"
+            : match.awayTeam.name === "Bosnia-Herzegovina"
+            ? "Bosnia & Herzegovina"
+            : match.awayTeam.name === "Türkiye"
+            ? "Türkiye"
+            : match.awayTeam.name,
+        homeScore: match.score.fullTime.home,
+        awayScore: match.score.fullTime.away,
+        status:
+          match.status === "FINISHED"
+            ? "completed"
+            : match.status === "IN_PLAY" || match.status === "PAUSED"
+            ? "live"
+            : "scheduled",
+        date: match.utcDate,
+      }));
+
+    return res.status(200).json(matches);
   } catch (error) {
     console.error(error);
 
