@@ -4,6 +4,7 @@ import DashboardPage from "./pages/DashboardPage";
 import TeamsPage from "./pages/TeamsPage";
 import MatchesPage from "./pages/MatchesPage";
 import StandingsPage from "./pages/StandingsPage";
+import Footer from "./components/Footer";
 
 type Page = "dashboard" | "teams" | "matches" | "standings";
 
@@ -18,8 +19,9 @@ function App() {
       {activePage === "matches" && <MatchesPage />}
       {activePage === "teams" && <TeamsPage />}
       {activePage === "standings" && <StandingsPage />}
-      
-    </main>
+
+<Footer />
+</main>
   );
 }
 

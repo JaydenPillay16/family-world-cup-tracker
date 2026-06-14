@@ -15,6 +15,11 @@ function DashboardPage() {
 
   const leaderboard = calculateLeaderboard(matches);
 
+  const leaderGap =
+    leaderboard.length > 1 ? leaderboard[0].points - leaderboard[1].points : 0;
+
+  const lastUpdated = new Date().toLocaleString();
+
   return (
     <>
       <section className="relative px-6 py-14 text-center">
@@ -44,30 +49,34 @@ function DashboardPage() {
         </div>
       </section>
 
-<section className="mx-auto max-w-6xl px-6 pb-8">
-  <div className="rounded-3xl border border-yellow-400/20 bg-yellow-400/10 p-4 text-center">
-    <p className="text-sm uppercase tracking-widest text-yellow-300">
-      Tournament Status
-    </p>
+      <section className="mx-auto max-w-6xl px-6 pb-8">
+        <div className="rounded-3xl border border-yellow-400/20 bg-yellow-400/10 p-4 text-center">
+          <p className="text-sm uppercase tracking-widest text-yellow-300">
+            Tournament Status
+          </p>
 
-    <div className="mt-2 flex flex-col items-center gap-2 md:flex-row md:justify-center md:gap-8">
-      <span className="font-bold">
-        ⚽ Matches Played: {matches.length}
-      </span>
+          <div className="mt-2 flex flex-col items-center gap-2 md:flex-row md:flex-wrap md:justify-center md:gap-8">
+            <span className="font-bold">
+              ⚽ Matches Played: {matches.length}
+            </span>
 
-      <span className="font-bold">
-        🏆 Current Leader: {leaderboard[0]?.name}
-      </span>
+            <span className="font-bold">
+              🏆 Current Leader: {leaderboard[0]?.name ?? "-"}
+            </span>
 
-      <span className="font-bold">
-        ⭐ Top Score: {leaderboard[0]?.points} pts
-      </span>
-    </div>
-  </div>
-</section>
+            <span className="font-bold">
+              ⭐ Top Score: {leaderboard[0]?.points ?? 0} pts
+            </span>
 
-<section className="mx-auto max-w-6xl px-6 pb-10">
-  <div className="grid gap-4 md:grid-cols-4">
+            <span className="font-bold">📈 Lead Gap: {leaderGap} pts</span>
+
+            <span className="font-bold">🕒 Updated: {lastUpdated}</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-10">
+        <div className="grid gap-4 md:grid-cols-4">
           <div className="rounded-3xl bg-white/10 p-6 text-center">
             <p className="text-4xl font-black text-yellow-300">
               {leaderboard.length}
