@@ -1,26 +1,30 @@
-export default async function handler(
-  req: any,
-  res: any
-) {
+export default async function handler(req: any, res: any) {
   try {
+    const token = process.env["FOOTBALL_DATA_TOKEN"];
+
+    if (!token) {
+      return res.status(500).json({
+        error: "FOOTBALL_DATA_TOKEN is missing",
+      });
+    }
+
     const response = await fetch(
-      "https://api-football-v1.p.rapidapi.com/v3/fixtures?league=1&season=2026",
+      "https://api.football-data.org/v4/competitions/WC/matches?season=2026",
       {
         headers: {
-          "X-RapidAPI-Key": process.env.RAPIDAPI_KEY!,
-          "X-RapidAPI-Host": "api-football-v1.p.rapidapi.com",
+          "X-Auth-Token": token,
         },
       }
     );
 
     const data = await response.json();
 
-    return res.status(200).json(data);
+    return res.status(response.status).json(data);
   } catch (error) {
     console.error(error);
 
     return res.status(500).json({
-      error: "Failed to fetch World Cup data",
+      error: "Failed to fetch football-data.org World Cup data",
     });
   }
 }
