@@ -1,4 +1,5 @@
 import { groups } from "../data/groups";
+import { normalizeTeamName } from "./normalizeTeamName";
 
 export interface GroupStanding {
   team: string;
@@ -39,8 +40,11 @@ export function calculateGroupStandings(matches: Match[]) {
       .forEach((match) => {
         if (match.homeScore === null || match.awayScore === null) return;
 
-        const home = groupTable[match.homeTeam];
-        const away = groupTable[match.awayTeam];
+        const homeTeam = normalizeTeamName(match.homeTeam);
+const awayTeam = normalizeTeamName(match.awayTeam);
+
+const home = groupTable[homeTeam];
+const away = groupTable[awayTeam];
 
         if (!home || !away) return;
 

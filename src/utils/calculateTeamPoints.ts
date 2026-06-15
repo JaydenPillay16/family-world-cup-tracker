@@ -1,4 +1,5 @@
 import type { Match } from "../types/match";
+import { normalizeTeamName } from "./normalizeTeamName";
 
 export function calculateTeamPoints(
   match: Match
@@ -7,22 +8,25 @@ export function calculateTeamPoints(
     return null;
   }
 
+  const homeTeam = normalizeTeamName(match.homeTeam);
+  const awayTeam = normalizeTeamName(match.awayTeam);
+
   if (match.homeScore > match.awayScore) {
     return {
-      [match.homeTeam]: 3,
-      [match.awayTeam]: 0,
+      [homeTeam]: 3,
+      [awayTeam]: 0,
     };
   }
 
   if (match.homeScore < match.awayScore) {
     return {
-      [match.homeTeam]: 0,
-      [match.awayTeam]: 3,
+      [homeTeam]: 0,
+      [awayTeam]: 3,
     };
   }
 
   return {
-    [match.homeTeam]: 1,
-    [match.awayTeam]: 1,
+    [homeTeam]: 1,
+    [awayTeam]: 1,
   };
 }
