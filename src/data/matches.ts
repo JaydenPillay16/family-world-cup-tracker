@@ -41,4 +41,15 @@ export const matches: Match[] = [
     status: "completed",
     date: "2026-06-12",
   },
+
+  {
+  id: "...",
+  group: "H",
+  homeTeam: "Spain",
+  awayTeam: "Cape Verde",
+  homeScore: 0,
+  awayScore: 0,
+  status: "completed",
+  date: "2026-06-15",
+},
 ];
