@@ -6,11 +6,11 @@ function PageBackground() {
       <img
         src={background}
         alt=""
-        className="h-full w-full object-cover object-center opacity-70"
+        className="h-full w-full object-cover object-center opacity-80"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/20 via-[#020617]/30 to-[#020617]/75" />
-      <div className="absolute inset-0 bg-black/15" />
+      <div className="absolute inset-0 bg-[#020617]/25" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/10 via-[#020617]/20 to-[#020617]/80" />
     </div>
   );
 }
