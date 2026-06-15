@@ -12,7 +12,7 @@ function Footer() {
 
       <div className="text-left">
         <h3 className="font-bold text-yellow-300">
-          Family World Cup 2026
+          Munu Family World Cup 2026
         </h3>
 
         <p className="text-xs uppercase tracking-widest text-gray-500">

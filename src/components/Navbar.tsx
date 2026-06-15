@@ -27,7 +27,7 @@ function Navbar({ activePage, setActivePage }: NavbarProps) {
 
   <div>
     <h1 className="text-xl font-black text-yellow-300">
-      Family World Cup
+      Munu Family World Cup
     </h1>
 
     <p className="text-xs uppercase tracking-widest text-gray-400">

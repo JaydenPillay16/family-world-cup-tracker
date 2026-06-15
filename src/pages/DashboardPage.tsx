@@ -46,7 +46,7 @@ function DashboardPage() {
 />
 
           <h2 className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 bg-clip-text text-5xl font-black text-transparent md:text-7xl">
-            FAMILY WORLD CUP
+            MUNU FAMILY WORLD CUP
           </h2>
 
           <p className="mt-3 text-2xl font-bold text-yellow-300">
