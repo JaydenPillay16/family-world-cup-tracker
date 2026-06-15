@@ -23,7 +23,7 @@ function MatchGrid() {
       {matches.map((match) => (
         <div
           key={match.id}
-          className="rounded-3xl border border-white/10 bg-white/10 p-5 shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]"
+          className="rounded-3xl border border-yellow-400/20 bg-black/35 p-5 shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-yellow-400/50"
         >
           <div className="mb-4 flex items-center justify-between">
             <span

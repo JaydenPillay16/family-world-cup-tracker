@@ -1,3 +1,5 @@
+import fifaLogo from "../assets/fifa-logo.png";
+
 type Page = "dashboard" | "teams" | "matches" | "standings";
 
 interface NavbarProps {
@@ -16,15 +18,23 @@ function Navbar({ activePage, setActivePage }: NavbarProps) {
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#020617]/80 px-6 py-4 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <h1 className="flex items-center gap-3 text-xl font-black">
-  <span className="rounded-2xl bg-yellow-400 px-3 py-2 text-black shadow-lg shadow-yellow-400/30">
-    🏆
-  </span>
+        <div className="flex items-center gap-4">
+  <img
+    src={fifaLogo}
+    alt="FIFA Logo"
+    className="h-14 w-auto drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]"
+  />
 
-  <span className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
-    Family World Cup
-  </span>
-</h1>
+  <div>
+    <h1 className="text-xl font-black text-yellow-300">
+      Family World Cup
+    </h1>
+
+    <p className="text-xs uppercase tracking-widest text-gray-400">
+      2026 Tournament
+    </p>
+  </div>
+</div>
 
         <div className="flex gap-2">
           {pages.map((page) => (

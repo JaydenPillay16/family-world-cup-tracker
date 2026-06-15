@@ -57,7 +57,7 @@ export const teamCodes: Record<string, string> = {
   Jordan: "JO",
 
   Portugal: "PT",
-  "Congo DR": "CD",
+  "DR Congo": "CD",
   "Congo DR": "CD",
   Uzbekistan: "UZ",
   Colombia: "CO",

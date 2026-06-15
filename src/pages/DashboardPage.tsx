@@ -42,7 +42,7 @@ function DashboardPage() {
           <img
   src={worldCupTrophy}
   alt="World Cup Trophy"
-  className="mx-auto mb-6 h-40 w-auto animate-pulse drop-shadow-[0_0_35px_rgba(250,204,21,0.45)] md:h-56"
+  className="mx-auto mb-8 h-56 w-auto drop-shadow-[0_0_60px_rgba(250,204,21,0.75)] md:h-72"
 />
 
           <h2 className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 bg-clip-text text-5xl font-black text-transparent md:text-7xl">
@@ -61,55 +61,63 @@ function DashboardPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-8">
-        <div className="rounded-3xl border border-yellow-400/20 bg-yellow-400/10 p-4 text-center">
-          <p className="text-sm uppercase tracking-widest text-yellow-300">
-            Tournament Status
-          </p>
+  <div className="rounded-3xl border border-yellow-400/40 bg-black/45 p-5 text-center shadow-2xl backdrop-blur">
+    <p className="text-sm uppercase tracking-widest text-yellow-300">
+      Tournament Status
+    </p>
 
-          <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
-            <span className="font-bold">
-              ⚽ Matches Played: {matches.length}
-            </span>
+    <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+      <span className="font-bold">
+        ⚽ Matches Played: {matches.length}
+      </span>
 
-            <span className="font-bold">
-              🏆 Current Leader: {leaderboard[0]?.name ?? "-"}
-            </span>
+      <span className="font-bold">
+        🏆 Current Leader: {leaderboard[0]?.name ?? "-"}
+      </span>
 
-            <span className="font-bold">
-              ⭐ Top Score: {leaderboard[0]?.points ?? 0} pts
-            </span>
+      <span className="font-bold">
+        ⭐ Top Score: {leaderboard[0]?.points ?? 0} pts
+      </span>
 
-            <span className="font-bold">📈 Lead Gap: {leaderGap} pts</span>
+      <span className="font-bold">
+        📈 Lead Gap: {leaderGap} pts
+      </span>
 
-            <span className="font-bold">🕒 Updated: {lastUpdated}</span>
-          </div>
-        </div>
-      </section>
+      <span className="font-bold">
+        🕒 Updated: {lastUpdated}
+      </span>
+    </div>
+  </div>
+</section>
 
       <section className="mx-auto max-w-6xl px-6 pb-10">
         <div className="grid gap-4 md:grid-cols-4">
-          <div className="rounded-3xl bg-white/10 p-6 text-center">
+          <div className="rounded-3xl border border-yellow-400/30 bg-black/35 p-6 text-center shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]">
+            <p className="mb-2 text-3xl">👥</p>
             <p className="text-4xl font-black text-yellow-300">
               {leaderboard.length}
             </p>
             <p className="text-gray-400">Players</p>
           </div>
 
-          <div className="rounded-3xl bg-white/10 p-6 text-center">
+          <div className="rounded-3xl border border-yellow-400/30 bg-black/35 p-6 text-center shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]">
+            <p className="mb-2 text-3xl">⚽</p>
             <p className="text-4xl font-black text-yellow-300">
               {matches.length}
             </p>
             <p className="text-gray-400">Matches</p>
           </div>
 
-          <div className="rounded-3xl bg-white/10 p-6 text-center">
+          <div className="rounded-3xl border border-yellow-400/30 bg-black/35 p-6 text-center shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]">
+            <p className="mb-2 text-3xl">⭐</p>
             <p className="text-4xl font-black text-yellow-300">
               {leaderboard[0]?.points ?? 0}
             </p>
             <p className="text-gray-400">Leading Score</p>
           </div>
 
-          <div className="rounded-3xl bg-white/10 p-6 text-center">
+          <div className="rounded-3xl border border-yellow-400/30 bg-black/35 p-6 text-center shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]">
+            <p className="mb-2 text-3xl">👑</p>
             <p className="text-4xl font-black text-yellow-300">
               {leaderboard[0]?.name ?? "-"}
             </p>
@@ -123,7 +131,11 @@ function DashboardPage() {
       <Leaderboard leaderboard={leaderboard} />
 
       <section className="mx-auto max-w-6xl px-6 pb-20">
-        <h2 className="mb-5 text-3xl font-black">Recent Matches</h2>
+        <div className="mb-6 flex items-center gap-4">
+  <div className="h-px flex-1 bg-yellow-400/40" />
+  <h2 className="text-center text-3xl font-black">⚽ Recent Matches</h2>
+  <div className="h-px flex-1 bg-yellow-400/40" />
+</div>
         <MatchGrid />
       </section>
     </>

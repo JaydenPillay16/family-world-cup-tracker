@@ -7,24 +7,26 @@ import StandingsPage from "./pages/StandingsPage";
 import Footer from "./components/Footer";
 import PageBackground from "./components/PageBackground";
 
+
 type Page = "dashboard" | "teams" | "matches" | "standings";
 
 function App() {
   const [activePage, setActivePage] = useState<Page>("dashboard");
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#020617] text-white">
+  <main className="relative min-h-screen overflow-hidden text-white">
     <PageBackground />
-      <Navbar activePage={activePage} setActivePage={setActivePage} />
 
-      {activePage === "dashboard" && <DashboardPage />}
-      {activePage === "matches" && <MatchesPage />}
-      {activePage === "teams" && <TeamsPage />}
-      {activePage === "standings" && <StandingsPage />}
+    <Navbar activePage={activePage} setActivePage={setActivePage} />
 
-<Footer />
-</main>
-  );
+    {activePage === "dashboard" && <DashboardPage />}
+    {activePage === "teams" && <TeamsPage />}
+    {activePage === "matches" && <MatchesPage />}
+    {activePage === "standings" && <StandingsPage />}
+
+    <Footer />
+  </main>
+);
 }
 
 export default App;
