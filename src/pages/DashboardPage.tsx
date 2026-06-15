@@ -5,6 +5,7 @@ import Podium from "../components/Podium";
 import { calculateLeaderboard } from "../utils/calculateLeaderboard";
 import { getMatches } from "../services/matchService";
 import type { Match } from "../types/match";
+import worldCupTrophy from "../assets/world-cup-trophy-transparent.png";
 
 function DashboardPage() {
   const [matches, setMatches] = useState<Match[]>([]);
@@ -38,7 +39,11 @@ function DashboardPage() {
             Family Tournament
           </p>
 
-          <div className="mb-4 animate-pulse text-8xl">🏆</div>
+          <img
+  src={worldCupTrophy}
+  alt="World Cup Trophy"
+  className="mx-auto mb-6 h-40 w-auto animate-pulse drop-shadow-[0_0_35px_rgba(250,204,21,0.45)] md:h-56"
+/>
 
           <h2 className="bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-300 bg-clip-text text-5xl font-black text-transparent md:text-7xl">
             FAMILY WORLD CUP

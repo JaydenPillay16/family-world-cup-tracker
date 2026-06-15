@@ -3,6 +3,7 @@ import ReactCountryFlag from "react-country-flag";
 import { getTeamCode } from "../constants/teamFlags";
 import { getMatches } from "../services/matchService";
 import type { Match } from "../types/match";
+import { getGroupBadgeStyle } from "../constants/groupStyles";
 
 function MatchGrid() {
   const [matches, setMatches] = useState<Match[]>([]);
@@ -25,9 +26,13 @@ function MatchGrid() {
           className="rounded-3xl border border-white/10 bg-white/10 p-5 shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]"
         >
           <div className="mb-4 flex items-center justify-between">
-            <span className="rounded-full bg-yellow-400 px-3 py-1 text-xs font-black text-black">
-              Group {match.group}
-            </span>
+            <span
+  className={`rounded-full px-3 py-1 text-xs font-black shadow-lg ${getGroupBadgeStyle(
+    match.group
+  )}`}
+>
+  Group {match.group}
+</span>
 
             {match.status === "live" ? (
               <span className="flex items-center gap-2 rounded-full bg-red-500/20 px-3 py-1 text-xs font-black uppercase tracking-widest text-red-300">

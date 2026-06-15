@@ -28,7 +28,6 @@ export const teamCodes: Record<string, string> = {
   Curaçao: "CW",
   Curacao: "CW",
   "Ivory Coast": "CI",
-  "Côte d'Ivoire": "CI",
   Ecuador: "EC",
 
   Netherlands: "NL",
@@ -58,7 +57,7 @@ export const teamCodes: Record<string, string> = {
   Jordan: "JO",
 
   Portugal: "PT",
-  "DR Congo": "CD",
+  "Congo DR": "CD",
   "Congo DR": "CD",
   Uzbekistan: "UZ",
   Colombia: "CO",

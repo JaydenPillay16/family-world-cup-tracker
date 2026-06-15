@@ -16,7 +16,15 @@ function Navbar({ activePage, setActivePage }: NavbarProps) {
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#020617]/80 px-6 py-4 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <h1 className="text-xl font-black text-yellow-300">🏆 Family WC</h1>
+        <h1 className="flex items-center gap-3 text-xl font-black">
+  <span className="rounded-2xl bg-yellow-400 px-3 py-2 text-black shadow-lg shadow-yellow-400/30">
+    🏆
+  </span>
+
+  <span className="bg-gradient-to-r from-yellow-200 via-yellow-400 to-orange-400 bg-clip-text text-transparent">
+    Family World Cup
+  </span>
+</h1>
 
         <div className="flex gap-2">
           {pages.map((page) => (
