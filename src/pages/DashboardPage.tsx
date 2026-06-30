@@ -73,7 +73,7 @@ function DashboardPage() {
       </span>
 
       <span className="font-bold">
-        🏆 Winner: {leaderboard[0]?.name ?? "-"}
+        🏆 Current Leader: {leaderboard[0]?.name ?? "-"}
       </span>
 
       <span className="font-bold">
@@ -91,7 +91,7 @@ function DashboardPage() {
   </div>
 </section>
 
-<WinnerAnnouncement winner={leaderboard[0]} />
+{/* <WinnerAnnouncement winner={leaderboard[0]} /> */}
 
 <section className="mx-auto max-w-6xl px-6 pb-10">
         <div className="grid gap-4 md:grid-cols-4">
@@ -124,7 +124,7 @@ function DashboardPage() {
             <p className="text-4xl font-black text-yellow-300">
               {leaderboard[0]?.name ?? "-"}
             </p>
-            <p className="text-gray-400">Winner</p>
+            <p className="text-gray-400">Current Leader</p>
           </div>
         </div>
       </section>
