@@ -4,9 +4,12 @@ export interface Match {
   awayTeam: string;
   homeScore: number | null;
   awayScore: number | null;
+
+  group?: string;
+  stage?: string;
+  status?: string;
+  date?: string;
+
   homePenaltyScore?: number | null;
   awayPenaltyScore?: number | null;
-  stage?: string;
-  date?: string;
-  status?: string;
 }

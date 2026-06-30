@@ -32,28 +32,31 @@ export function calculateTeamPoints(
     };
   }
 
-  if (isKnockout) {
-    if (match.homePenaltyScore !== null && match.awayPenaltyScore !== null) {
-      if (match.homePenaltyScore > match.awayPenaltyScore) {
-        return {
-          [homeTeam]: 3,
-          [awayTeam]: 0,
-        };
-      }
+ const homePenaltyScore = match.homePenaltyScore ?? null;
+ const awayPenaltyScore = match.awayPenaltyScore ?? null;
 
-      if (match.homePenaltyScore < match.awayPenaltyScore) {
-        return {
-          [homeTeam]: 0,
-          [awayTeam]: 3,
-        };
-      }
+if (isKnockout) {
+  if (homePenaltyScore !== null && awayPenaltyScore !== null) {
+    if (homePenaltyScore > awayPenaltyScore) {
+      return {
+        [homeTeam]: 3,
+        [awayTeam]: 0,
+      };
     }
 
-    return {
-      [homeTeam]: 0,
-      [awayTeam]: 0,
-    };
+    if (homePenaltyScore < awayPenaltyScore) {
+      return {
+        [homeTeam]: 0,
+        [awayTeam]: 3,
+      };
+    }
   }
+
+  return {
+    [homeTeam]: 0,
+    [awayTeam]: 0,
+  };
+}
 
   return {
     [homeTeam]: 1,

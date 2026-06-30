@@ -28,10 +28,10 @@ function MatchGrid() {
           <div className="mb-4 flex items-center justify-between">
             <span
   className={`rounded-full px-3 py-1 text-xs font-black shadow-lg ${getGroupBadgeStyle(
-    match.group
+    match.group ?? match.stage ?? "Other"
   )}`}
 >
-  Group {match.group}
+  Group {match.group ?? match.stage ?? "Other"}
 </span>
 
             {match.status === "live" ? (
