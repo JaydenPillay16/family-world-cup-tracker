@@ -90,7 +90,6 @@ function DashboardPage() {
     </div>
   </div>
 </section>
-//testing
 
 {/* <WinnerAnnouncement winner={leaderboard[0]} /> */}
 
