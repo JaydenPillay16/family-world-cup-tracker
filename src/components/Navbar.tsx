@@ -9,32 +9,32 @@ interface NavbarProps {
 
 function Navbar({ activePage, setActivePage }: NavbarProps) {
   const pages: { key: Page; label: string }[] = [
-  { key: "dashboard", label: "🏆 Dashboard" },
-  { key: "teams", label: "👥 Teams" },
-  { key: "matches", label: "⚽ Matches" },
-  { key: "standings", label: "📊 Standings" },
-];
+    { key: "dashboard", label: "🏆 Dashboard" },
+    { key: "teams", label: "👥 Teams" },
+    { key: "matches", label: "⚽ Matches" },
+    { key: "standings", label: "📊 Standings" },
+  ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#020617]/80 px-6 py-4 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
+    <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#020617]/90 px-4 py-4 backdrop-blur">
+      <div className="flex w-full items-center justify-between">
         <div className="flex items-center gap-4">
-  <img
-    src={fifaLogo}
-    alt="FIFA Logo"
-    className="h-14 w-auto drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]"
-  />
+          <img
+            src={fifaLogo}
+            alt="FIFA Logo"
+            className="h-14 w-auto drop-shadow-[0_0_15px_rgba(250,204,21,0.4)]"
+          />
 
-  <div>
-    <h1 className="text-xl font-black text-yellow-300">
-      Munu Family World Cup
-    </h1>
+          <div>
+            <h1 className="text-xl font-black text-yellow-300">
+              Munu Family World Cup
+            </h1>
 
-    <p className="text-xs uppercase tracking-widest text-gray-400">
-      2026 Tournament
-    </p>
-  </div>
-</div>
+            <p className="text-xs uppercase tracking-widest text-gray-400">
+              2026 Tournament
+            </p>
+          </div>
+        </div>
 
         <div className="flex gap-2">
           {pages.map((page) => (
