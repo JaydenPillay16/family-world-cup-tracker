@@ -6,6 +6,7 @@ import { calculateLeaderboard } from "../utils/calculateLeaderboard";
 import { getMatches } from "../services/matchService";
 import type { Match } from "../types/match";
 import worldCupTrophy from "../assets/world-cup-trophy-transparent.png";
+import WinnerAnnouncement from "../components/WinnerAnnouncement";
 
 function DashboardPage() {
   const [matches, setMatches] = useState<Match[]>([]);
@@ -72,7 +73,7 @@ function DashboardPage() {
       </span>
 
       <span className="font-bold">
-        🏆 Current Leader: {leaderboard[0]?.name ?? "-"}
+        🏆 Winner: {leaderboard[0]?.name ?? "-"}
       </span>
 
       <span className="font-bold">
@@ -90,7 +91,9 @@ function DashboardPage() {
   </div>
 </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-10">
+<WinnerAnnouncement winner={leaderboard[0]} />
+
+<section className="mx-auto max-w-6xl px-6 pb-10">
         <div className="grid gap-4 md:grid-cols-4">
           <div className="rounded-3xl border border-yellow-400/30 bg-black/35 p-6 text-center shadow-xl backdrop-blur transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02]">
             <p className="mb-2 text-3xl">👥</p>
@@ -121,7 +124,7 @@ function DashboardPage() {
             <p className="text-4xl font-black text-yellow-300">
               {leaderboard[0]?.name ?? "-"}
             </p>
-            <p className="text-gray-400">Current Leader</p>
+            <p className="text-gray-400">Winner</p>
           </div>
         </div>
       </section>
